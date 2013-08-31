@@ -7,13 +7,14 @@ require_once('template.class.php');
 $tpl = new Template('page.tpl');
 
 // Fill it up with values
-$tpl->assign('title', 'Test');
-$tpl->assign('subtitle', 'Nixt');
+$tpl->assign('title', 'TinyTemplateEngine');
+$tpl->assign('subtitle', 'A small one file php template engine');
+$tpl->assign('looptitle', 'Now comes a loop:');
 $peoples = array();
-$peoples[0] = array('name' => 'home', 'surname' => 'shomo');
-$peoples[1] = array('name' => 'home2', 'surname' => 'shomo2');
+$peoples[0] = array('name' => 'miller', 'surname' => 'peter');
+$peoples[1] = array('name' => 'stone', 'surname' => 'frank');
 $tpl->assign('people', $peoples);
-$tpl->assign('footer', '=== FOOTER ===');
+$tpl->assign('footer', 'This is the end of the template!');
 
 // Display the template
 $tpl->display();
