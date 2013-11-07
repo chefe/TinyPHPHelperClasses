@@ -42,6 +42,10 @@ class Template
         $template = preg_replace('~\{(\w+)\}~', '<?php $this->showVariable(\'$1\'); ?>', $template);
         $template = preg_replace('~\{LOOP:(\w+)\}~', '<?php foreach ($this->TEMPLATE_DATASTACK[$this->TEMPLATE_STACKLEVEL][\'$1\'] as $ELEMENT) { $this->wrap($ELEMENT); ?>', $template);
         $template = preg_replace('~\{ENDLOOP:(\w+)\}~', '<?php $this->unwrap(); } ?>', $template);
+        $template = preg_replace('~\{IF:(\w+)\}~', '<?php if($this->TEMPLATE_DATASTACK[$this->TEMPLATE_STACKLEVEL][\'$1\']) { ?>', $template);
+        $template = preg_replace('~\{ELSE:(\w+)\}~', '<?php } else { ?>', $template);
+        $template = preg_replace('~\{ENDIF:(\w+)\}~', '<?php } ?>', $template);
+        
         $template = '?>' . $template;
 
         // Evaluate the template and print it out
