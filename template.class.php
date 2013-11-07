@@ -34,9 +34,6 @@ class Template
     {
         // Load Template File Content
         $template = file_get_contents($this->TEMPLATE_FILE);
-
-        // Start Ob-Buffer if enabled
-        if ($strOutput) { ob_start(); }
         
         // Replace the placeholder in the template with php statements
         $template = preg_replace('~\{(\w+)\}~', '<?php $this->showVariable(\'$1\'); ?>', $template);
@@ -45,8 +42,10 @@ class Template
         $template = preg_replace('~\{IF:(\w+)\}~', '<?php if($this->TEMPLATE_DATASTACK[$this->TEMPLATE_STACKLEVEL][\'$1\']) { ?>', $template);
         $template = preg_replace('~\{ELSE:(\w+)\}~', '<?php } else { ?>', $template);
         $template = preg_replace('~\{ENDIF:(\w+)\}~', '<?php } ?>', $template);
-        
         $template = '?>' . $template;
+
+	// Start Ob-Buffer if enabled
+        if ($strOutput) { ob_start(); }
 
         // Evaluate the template and print it out
         echo(eval ($template));
