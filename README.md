@@ -4,9 +4,9 @@ TinyTemplateEngine
 A small one file php template engine
 
 ## Suporte Placeholder
-* {Title} for Variable
-* {IF:Condition}, {ELSE:Condition} and {ENDIF:Condition} for IF statements
-* {LOOP:Loopvariable} and {ENDLOOP:Loopvariable} for loops
+* ```{Title}``` for Variable
+* ```{IF:Condition}```, ```{ELSE:Condition}``` and ```{ENDIF:Condition}``` for IF statements
+* ```{LOOP:Loopvariable}``` and ```{ENDLOOP:Loopvariable}``` for loops
 
 ## PHP-Code
 ```php
