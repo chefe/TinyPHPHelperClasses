@@ -8,7 +8,7 @@
 		<p>{looptitle}</p>
 		{LOOP:people}
 			<b>{name}</b> {surname}<br />
-		{ENDLOOP:people}
+		{ENDLOOP}
 
 		<br /><br />
 		<i>{footer}</i>
