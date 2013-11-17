@@ -5,8 +5,8 @@ A small one file php template engine
 
 ## Supporte Placeholder
 * ```{Title}``` for Variable
-* ```{IF:Condition}```, ```{ELSE:Condition}``` and ```{ENDIF:Condition}``` for IF statements
-* ```{LOOP:Loopvariable}``` and ```{ENDLOOP:Loopvariable}``` for loops
+* ```{IF:Condition}```, ```{ELSE}``` and ```{ENDIF}``` for IF statements
+* ```{LOOP:Loopvariable}``` and ```{ENDLOOP}``` for loops
 
 ## PHP-Code
 ```php
@@ -38,7 +38,7 @@ $tpl->display();
 <h1>{subtitle}</h1>
 {LOOP:people}
 <b>{name}</b> {surname}<br />
-{ENDLOOP:people}
+{ENDLOOP}
 <br /><br />
 <i>{footer}</i>
 </body>
