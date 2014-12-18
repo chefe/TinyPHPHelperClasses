@@ -24,6 +24,7 @@ $peoples[1] = array('name' => 'stone', 'surname' => 'frank');
 // Fill up template with values
 $tpl->assign('title', 'TinyTemplateEngine');
 $tpl->assign('subtitle', 'A small one file php template engine');
+$tpl->assign('looptitle', 'Now comes a loop:');
 $tpl->assign('people', $peoples);
 $tpl->assign('footer', 'This is the end of the template!');
 
@@ -32,7 +33,7 @@ $tpl->display();
 ```
 
 ## Template
-```tpl
+```html
 <html>
   <head>
     <title>{title}</title>
@@ -47,6 +48,25 @@ $tpl->display();
     
     <br /><br />
     <i>{footer}</i>
+  </body>
+</html>
+```
+
+## Result
+```html
+<html>
+  <head>
+    <title>TinyTemplateEngine</title>
+  </head>
+  <body>
+    <h1>A small one file php template engine</h1>
+    
+    <p>Now comes a loop:</p>
+    <b>miller</b> peter<br />
+    <b>stone</b> frank<br />
+    
+    <br /><br />
+    <i>This is the end of the template!</i>
   </body>
 </html>
 ```
