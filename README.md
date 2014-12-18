@@ -16,31 +16,37 @@ require_once('template.class.php');
 // Create a new Template
 $tpl = new Template('page.tpl');
 
-// Fill it up with values
-$tpl->assign('title', 'Test');
-$tpl->assign('subtitle', 'Nixt');
+// Build up data structure for template
 $peoples = array();
-$peoples[0] = array('name' => 'home', 'surname' => 'shomo');
-$peoples[1] = array('name' => 'home2', 'surname' => 'shomo2');
+$peoples[0] = array('name' => 'miller', 'surname' => 'peter');
+$peoples[1] = array('name' => 'stone', 'surname' => 'frank');
+
+// Fill up template with values
+$tpl->assign('title', 'TinyTemplateEngine');
+$tpl->assign('subtitle', 'A small one file php template engine');
 $tpl->assign('people', $peoples);
-$tpl->assign('footer', '=== FOOTER ===');
+$tpl->assign('footer', 'This is the end of the template!');
 
 // Display the template
 $tpl->display();
-
 ```
 
 ## Template
 ```tpl
 <html>
-<title>{title}</title>
-<body>
-<h1>{subtitle}</h1>
-{LOOP:people}
-<b>{name}</b> {surname}<br />
-{ENDLOOP}
-<br /><br />
-<i>{footer}</i>
-</body>
+  <head>
+    <title>{title}</title>
+  </head>
+  <body>
+    <h1>{subtitle}</h1>
+    
+    <p>{looptitle}</p>
+    {LOOP:people}
+    <b>{name}</b> {surname}<br />
+    {ENDLOOP}
+    
+    <br /><br />
+    <i>{footer}</i>
+  </body>
 </html>
 ```
